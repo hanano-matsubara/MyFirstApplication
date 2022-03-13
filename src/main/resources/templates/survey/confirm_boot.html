@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{block/head::headA}"></div>
+
+<body class="d-flex flex-column h-100">
+    
+<div th:replace="~{block/header::headerA}"></div>
+<main role="main" class="container">
+	<div class="starter-template">
+		<h1 th:text="${title}">Bootstrap sterter template</h1>
+	</div>
+	<body>
+		<p>入力内容をご確認ください</p>
+		<div th:object="${surveyForm}">
+			<div class="mb-5" >
+				<ul class="list-group">
+				  <li th:text="*{age}" class="list-group-item">An item</li>
+				  <li th:text="*{satisfication}" class="list-group-item">A second item</li>
+				  <li th:text="*{comment}" class="list-group-item">A third item</li>
+				</ul>
+			</div>
+
+			<form class="mb-4" method="post" action="#" th:action="@{/survey/form}">
+				<input type="hidden" name="age" th:value="*{age}">
+				<input type="hidden" name="satisfication" th:value="*{satisfication}">
+				<input type="hidden" name="comment" th:value="*{comment}">
+				<button type="submit" class="btn btn-secondary">Go Back</button>
+			</form>
+
+			<form method="post" action="#" th:action="@{/survey/complete}">
+				<input type="hidden" name="age" th:value="*{age}">
+				<input type="hidden" name="satisfication" th:value="*{satisfication}">
+				<input type="hidden" name="comment" th:value="*{comment}">
+				<button type="submit" class="btn btn-primary">Complete</button>
+			</form>
+		</div>
+	</body>
+</main>
+</html>

@@ -1,0 +1,9 @@
+spring:
+  datasource:
+# データをメモリ上に保存。Spring起動時初期化
+    url: jdbc:h2:mem:test
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+#   ブラウザからもデータベースが閲覧できる
+  h2.console.enabled: true

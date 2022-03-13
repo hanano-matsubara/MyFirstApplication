@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{block/head::headA}"></div>
+<body class="d-flex flex-column h-100">
+    
+<div th:replace="~{block/header::headerA}"></div>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+	<div class="starter-template">
+		<h1 th:text="${title}">Bootstrap sterter template</h1>
+	</div>
+  
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">name</th>
+				<th scope="col">email</th>
+				<th scope="col">contents</th>
+				<th scope="col">datetime</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="inquiry : ${inquiryList}">
+				<th scope="row" th:text="${inquiry.id}">1</th>
+	
+					<td th:text="${inquiry.name}">name</td>
+					<td th:text="${inquiry.email}">email</td>
+					<td th:text="${inquiry.contents}">contents</td>
+					<td th:text="${inquiry.created}">created</td>
+			</tr>
+		</tbody>
+	</table>
+</main>
+
+
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+
+    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+      
+  </body>
+</html>
